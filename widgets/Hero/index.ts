@@ -1,0 +1,1 @@
+export {Hero} from "@/widgets/Hero/ui/Hero";
