@@ -10,8 +10,8 @@ type Props = {
 }
 
 export function Button({handler, variant="secondary", children, className}: Props) {
-    const base: ClassValue = "flex items-center justify-center rounded-full text-2xl font-medium";
-    const optional = variant === "primary" ? "bg-primary uppercase" : "bg-secondary";
+    const base: ClassValue = "flex items-center justify-center rounded-full text-xl font-medium cursor-pointer";
+    const optional = variant === "primary" ? "bg-primary uppercase px-3 py-2" : "bg-secondary px-2 py-1";
 
     return (
         <button
