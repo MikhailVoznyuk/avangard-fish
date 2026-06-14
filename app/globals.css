@@ -5,7 +5,8 @@
   --foreground: #171717;
   --primary: #064273;
   --secondary: #1DA2D8;
-  --base: #000;
+  --regular: #535353;
+  --accent: #000;
 }
 
 @theme inline {
@@ -13,7 +14,8 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-base: var(--base);
+  --color-regular: var(--regular);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
