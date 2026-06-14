@@ -1,0 +1,1 @@
+export{ Advantages } from "@/widgets/Advantages/ui/Advantages";
