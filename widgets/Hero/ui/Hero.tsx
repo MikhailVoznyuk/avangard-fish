@@ -2,8 +2,8 @@
 import Image from "next/image";
 import {useState} from "react";
 import {motion} from "framer-motion";
-import {Header} from "@/shared/text/Header";
-import {Button} from "@/shared/buttons/Button";
+import {Header} from "@/shared/ui/text/Header";
+import {Button} from "@/shared/ui/buttons/Button";
 
 
 export function Hero() {

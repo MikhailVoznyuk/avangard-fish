@@ -1,4 +1,4 @@
-import {IconLink} from "@/shared/links/IconLink";
+import {IconLink} from "@/shared/ui/links/IconLink";
 
 export function HeaderNav() {
     return (
