@@ -4,7 +4,7 @@ import {Advantages} from "@/widgets/Advantages";
 export default function Home() {
   return (
     <div className="w-screen">
-      <main className='flex flex-col gap-8'>
+      <main className='flex flex-col gap-16'>
           <Hero />
           <Advantages />
       </main>
