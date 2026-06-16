@@ -1,5 +1,5 @@
 import {AdvantageCard} from "@/widgets/Advantages/ui/AdvantageCard";
-import { Header } from "@/shared/ui/text/Header";
+import { SectionContainer } from "@/shared/ui/containers/SectionContainer";
 
 type Advantage = {
     title: string;
@@ -13,8 +13,7 @@ const ADVANTAGES_LIST: Advantage[] = [
 
 export function Advantages() {
     return (
-        <section className="flex flex-col items-center w-full gap-10">
-            <Header as={"h2"} variant="primary" size="xl" animated>Наши преимущества</Header>
+        <SectionContainer title="Наши преимущества">
             <div className="flex justify-center gap-6 flex-wrap">
                 <AdvantageCard
                     title={"Lorem ipsum dolor sit amet"}
@@ -37,7 +36,6 @@ export function Advantages() {
                     image={"/images/hero/fish.png"}
                 />
             </div>
-
-        </section>
+        </SectionContainer>
     )
 }
