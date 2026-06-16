@@ -1,5 +1,6 @@
 import {type ElementType, ReactNode} from "react";
 import {type ClassValue} from "clsx";
+import { Reveal } from "@/shared/ui/reveal/Reveal";
 import {cn} from "@/shared/utils/cn";
 
 interface Props {
@@ -7,19 +8,25 @@ interface Props {
     as: ElementType,
     children: ReactNode,
     size?: 'sm' | 'md' | 'lg' | 'xl'
-    className?: ClassValue
+    className?: ClassValue;
+    animated?: boolean;
 }
 
-const SIZES = {
-    sm: 'text-base',
-    md: 'text-lg',
-    lg: 'text-xl',
-    xl: 'text-2xl'
-}
-
-export function Header({as: Tag = 'h1', variant = 'primary', size='lg', children, className}: Props) {
+export function Header({as: Tag = 'h1', variant = 'primary', size='lg', children, className, animated=false}: Props) {
+    const sizes = {
+        sm: 'text-base',
+        md: 'text-lg',
+        lg: 'text-xl',
+        xl: variant === "primary" ? "text-4xl" : "text-2xl"
+    }
     const BASE = (variant === 'primary') ? 'text-primary uppercase font-semibold' : 'text-secondary font-semibold'
     return (
-        <Tag className={cn(BASE, SIZES[size], className)}>{children}</Tag>
+        (animated) ? (
+            <Reveal>
+                <Tag className={cn(BASE, sizes[size], className)}>{children}</Tag>
+            </Reveal>
+        ) : (
+            <Tag className={cn(BASE, sizes[size], className)}>{children}</Tag>
+        )
     )
 }
