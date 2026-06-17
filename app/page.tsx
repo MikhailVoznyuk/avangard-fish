@@ -1,5 +1,6 @@
 import {Hero} from "@/widgets/Hero";
 import {Advantages} from "@/widgets/Advantages";
+import {HowWeWork} from "@/widgets/HowWeWork";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <main className='flex flex-col gap-16'>
           <Hero />
           <Advantages />
+          <HowWeWork />
       </main>
     </div>
   );

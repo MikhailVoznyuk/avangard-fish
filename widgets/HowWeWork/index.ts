@@ -1,0 +1,1 @@
+export { HowWeWork } from "@/widgets/HowWeWork/ui/HowWeWork";
