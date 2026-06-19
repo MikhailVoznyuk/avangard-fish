@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef} from "react";
-import { motion, useScroll, useSpring, type MotionValue} from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, type MotionValue} from "framer-motion";
 import { ProgressCard } from "@/widgets/HowWeWork/ui/ProgressCard";
+import { ProgressPoint } from "@/widgets/HowWeWork/ui/ProgressPoint";
 
 export type ProgressItem = {
     title: string;
@@ -12,15 +13,15 @@ export type ProgressItem = {
 const PROGRESS_ITEMS: ProgressItem[] = [
     {
         title: "Первый блок",
-        content: 'Описание блока'
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
     },
     {
         title: "Второй блок",
-        content: 'Описание блока'
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
     },
     {
         title: "Третий блок",
-        content: 'Описание блока'
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
     }
 ];
 export function ProgressBlock() {
@@ -28,7 +29,6 @@ export function ProgressBlock() {
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start center", "end center"]
     });
 
     const progress = useSpring(scrollYProgress,
@@ -39,26 +39,45 @@ export function ProgressBlock() {
         }
     );
 
+
+    const CARD_SIZE = 320;
+
     return (
         <article ref={ref} className="relative h-[400vh] w-screen">
             <div className="sticky top-1/2 w-full flex justify-center">
-                <div className="relative flex flex-col w-full max-w-3xl">
-                    <div className="flex justify-between">
+                <div className="relative flex flex-col items-center w-full max-w-5xl gap-12">
+                    <div className="w-full flex justify-between ">
                         {PROGRESS_ITEMS.map((item, i) => (
                             <ProgressCard
                                 key={item.title}
                                 item={item}
                                 currentProgress={progress}
-                                progressNeeded={i * (1 / PROGRESS_ITEMS.length)}
+                                progressNeeded={i * (1 / (PROGRESS_ITEMS.length - 1))}
                             />
                         ))}
                     </div>
-                    <div className="relative w-full h-2 rounded-full overflow-hidden">
-                        <span className="absolute block left-0 top-0 size-full bg-secondary rounded-full" />
-                        <motion.span
-                            className="absolute  top-0 left-0 origin-left block size-full bg-primary"
-                            style={{scaleX: progress}}
-                        />
+                    <div className="relative"
+                         style={{width: `calc(100% - ${CARD_SIZE}px)`}}
+                    >
+                        <div className="relative w-full h-2 rounded-full overflow-hidden"
+                        >
+                            <span className="absolute block left-0 top-0 size-full bg-secondary rounded-full" />
+                            <motion.span
+                                className="absolute  top-0 left-0 origin-left block size-full bg-primary"
+                                style={{scaleX: progress}}
+                            />
+                        </div>
+                        <div className="w-full absolute top-0 flex justify-between"
+                        style={{transform: `translateY(calc(-50% + 4px))`}}>
+                            {PROGRESS_ITEMS.map((item, i) => (
+                                <ProgressPoint
+                                    key={item.title}
+                                    item={i + 1}
+                                    progressNeeded={i * (1 / (PROGRESS_ITEMS.length - 1))}
+                                    currentProgress={progress}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
