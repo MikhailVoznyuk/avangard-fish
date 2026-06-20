@@ -30,7 +30,7 @@ export function ProgressCard ({item, progressNeeded, currentProgress} : Props) {
     console.log(progressNeeded, currentProgress)
     return (
         <motion.article
-            className="flex flex-col items-center p-4 bg-white border-regular/20 border-1 rounded-2xl max-w-xs"
+            className="flex flex-col items-center p-4 bg-white border-regular/20 border-1 rounded-2xl max-w-xs shadow-lg"
             style={{opacity, y, scale}}
         >
             <Header as="h3" variant="secondary">{item.title}</Header>
