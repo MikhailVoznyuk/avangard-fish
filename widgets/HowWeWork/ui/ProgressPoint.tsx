@@ -14,7 +14,7 @@ export function ProgressPoint({item, progressNeeded, currentProgress}: Props) {
 
     return (
         <motion.div
-            className="size-12 flex items-center justify-center rounded-full bg-primary"
+            className="size-12 flex items-center justify-center rounded-full bg-primary text-white"
             style={{backgroundColor}}
         >
             {item}
