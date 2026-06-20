@@ -5,9 +5,8 @@ import {Reveal} from "@/shared/ui/reveal/Reveal";
 export function HowWeWork() {
     return (
         <SectionContainer title={"Как мы работаем"}>
-            <Reveal>
-                <ProgressBlock />
-            </Reveal>
+            <ProgressBlock />
+
         </SectionContainer>
     )
 }
