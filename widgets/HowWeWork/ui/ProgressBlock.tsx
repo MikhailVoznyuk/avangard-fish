@@ -2,6 +2,7 @@
 
 import { useRef} from "react";
 import { motion, useScroll, useSpring, useTransform, type MotionValue} from "framer-motion";
+import { Reveal } from "@/shared/ui/reveal/Reveal";
 import { ProgressCard } from "@/widgets/HowWeWork/ui/ProgressCard";
 import { ProgressPoint } from "@/widgets/HowWeWork/ui/ProgressPoint";
 
@@ -44,9 +45,9 @@ export function ProgressBlock() {
 
     return (
         <article ref={ref} className="relative h-[400vh] w-screen">
-            <div className="sticky top-1/2 w-full flex justify-center">
+            <div className="sticky top-1/4 w-full flex justify-center">
                 <div className="relative flex flex-col items-center w-full max-w-5xl gap-12">
-                    <div className="w-full flex justify-between ">
+                    <Reveal className="w-full flex justify-between">
                         {PROGRESS_ITEMS.map((item, i) => (
                             <ProgressCard
                                 key={item.title}
@@ -55,10 +56,9 @@ export function ProgressBlock() {
                                 progressNeeded={i * (1 / (PROGRESS_ITEMS.length - 1))}
                             />
                         ))}
-                    </div>
-                    <div className="relative"
-                         style={{width: `calc(100% - ${CARD_SIZE}px)`}}
-                    >
+
+                    </Reveal>
+                    <Reveal className="relative" style={{width: `calc(100% - ${CARD_SIZE}px)`}}>
                         <div className="relative w-full h-2 rounded-full overflow-hidden"
                         >
                             <span className="absolute block left-0 top-0 size-full bg-secondary rounded-full" />
@@ -68,7 +68,7 @@ export function ProgressBlock() {
                             />
                         </div>
                         <div className="w-full absolute top-0 flex justify-between"
-                        style={{transform: `translateY(calc(-50% + 4px))`}}>
+                             style={{transform: `translateY(calc(-50% + 4px))`}}>
                             {PROGRESS_ITEMS.map((item, i) => (
                                 <ProgressPoint
                                     key={item.title}
@@ -78,7 +78,7 @@ export function ProgressBlock() {
                                 />
                             ))}
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
             </div>
         </article>
