@@ -10,16 +10,17 @@ interface Props {
     size?: 'sm' | 'md' | 'lg' | 'xl'
     className?: ClassValue;
     animated?: boolean;
+    centered?: boolean;
 }
 
-export function Header({as: Tag = 'h1', variant = 'primary', size='lg', children, className, animated=false}: Props) {
+export function Header({as: Tag = 'h1', variant = 'primary', size='lg', children, className, animated=false, centered=false}: Props) {
     const sizes = {
         sm: 'text-base',
         md: 'text-lg',
         lg: 'text-xl',
         xl: variant === "primary" ? "text-4xl" : "text-2xl"
     }
-    const BASE = (variant === 'primary') ? 'text-primary uppercase font-semibold' : 'text-secondary font-semibold'
+    const BASE = `${(variant === "primary") ? "text-primary uppercase font-semibold" : "text-secondary font-semibold"} ${(centered) ? "text-center" : ""}`
     return (
         (animated) ? (
             <Reveal>
