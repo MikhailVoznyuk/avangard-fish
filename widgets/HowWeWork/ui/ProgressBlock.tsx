@@ -9,20 +9,24 @@ import { ProgressPoint } from "@/widgets/HowWeWork/ui/ProgressPoint";
 export type ProgressItem = {
     title: string;
     content: string;
+    image: string;
 };
 
 const PROGRESS_ITEMS: ProgressItem[] = [
     {
-        title: "Первый блок",
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
+        title: "Заключение сделки и расчеты",
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        image: "/icons/howWeWork/contract.svg"
     },
     {
-        title: "Второй блок",
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
+        title: "Производство",
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        image: "/icons/howWeWork/fish.svg",
     },
     {
-        title: "Третий блок",
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
+        title: "Доставка",
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        image: "/icons/howWeWork/truck.svg"
     }
 ];
 export function ProgressBlock() {
@@ -42,6 +46,7 @@ export function ProgressBlock() {
 
 
     const CARD_SIZE = 320;
+    const pointSize = 16 * 4;
 
     return (
         <article ref={ref} className="relative h-[400vh] w-screen">
@@ -58,7 +63,7 @@ export function ProgressBlock() {
                         ))}
 
                     </Reveal>
-                    <Reveal className="relative" style={{width: `calc(100% - ${CARD_SIZE}px)`}}>
+                    <Reveal className="relative" style={{width: `calc(100% - ${CARD_SIZE}px + ${pointSize}px)`}}>
                         <div className="relative w-full h-2 rounded-full overflow-hidden"
                         >
                             <span className="absolute block left-0 top-0 size-full bg-secondary rounded-full" />
@@ -72,7 +77,7 @@ export function ProgressBlock() {
                             {PROGRESS_ITEMS.map((item, i) => (
                                 <ProgressPoint
                                     key={item.title}
-                                    item={i + 1}
+                                    item={item}
                                     progressNeeded={i * (1 / (PROGRESS_ITEMS.length - 1))}
                                     currentProgress={progress}
                                 />
