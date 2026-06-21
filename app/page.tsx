@@ -1,6 +1,7 @@
 import {Hero} from "@/widgets/Hero";
 import {Advantages} from "@/widgets/Advantages";
 import {HowWeWork} from "@/widgets/HowWeWork";
+import {Catalog} from "@/widgets/Catalog";
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
           <Hero />
           <Advantages />
           <HowWeWork />
+          <Catalog />
+          <footer className="w-full h-40 bg-primary"></footer>
       </main>
     </div>
   );
