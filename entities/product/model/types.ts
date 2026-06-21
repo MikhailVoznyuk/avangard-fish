@@ -1,4 +1,4 @@
-type Availability = "В наличии" | "Под заказ" | "Отсутствует в продаже"
+type Availability = "В наличии" | "Под заказ" | "Нет в продаже"
 type Category = "Филе" | "Консервы" | "Котлеты" | "Без обработки"
 export type Product = {
     id: string;
