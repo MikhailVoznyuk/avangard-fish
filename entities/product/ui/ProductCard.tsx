@@ -41,7 +41,7 @@ export function ProductCard(props: Product) {
                     <TextHeader as="h5" size="lg" className="text-primary" animated={false}>
                         {`${props.price} руб/${props.priceUnit}`}
                     </TextHeader>
-                    <Button handler={() => {}}>Заказать</Button>
+                    <Button handler={() => {}} variant={"secondary"} className="bg-primary hover:bg-secondary">Заказать</Button>
                 </div>
             </div>
 
