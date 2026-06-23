@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: avangard-db
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5433:5432"
+    environment:
+      POSTGRES_USER: avangard
+      POSTGRES_PASSWORD: F8gd}saj#21gGJD9as?>330ggj3?12)%3dkga(
+      POSTGRES_DB: avangard
+    volumes:
+      - avangard_pg_data:/var/lib/postgresql/data
+volumes:
+  avangard_pg_data:
