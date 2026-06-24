@@ -1,6 +1,6 @@
-type Availability = "В наличии" | "Под заказ" | "Нет в продаже";
-type Category = "Филе" | "Консервы" | "Котлеты" | "Без обработки";
-type PriceUnit = "₽/кг" | "₽/шт" | "₽/уп";
+export type ProductAvailability = "IN_STOCK" | "TO_ORDER" | "OUT_OF_STOCK";
+export type ProductCategory = "FILLET" | "CANNED" | "CUTLETS" | "OUT_OF_STOCK";
+export type ProductPriceUnit = "PER_KG" | "PER_ITEM" | "PER_PACKAGE";
 
 export type Product = {
     id: string;
@@ -8,9 +8,11 @@ export type Product = {
     slug: string;
     description: string;
     price: number;
-    priceUnit: PriceUnit;
+    priceUnit: ProductPriceUnit;
     tags: string[] // через точку с запятой в CRM
     imageUrl: string;
-    category: Category;
-    availability: Availability;
+    category: ProductCategory;
+    availability: ProductAvailability;
 }
+
+export { type ProductItem} from "@/entities/product/api/getProducts";

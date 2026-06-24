@@ -1,0 +1,18 @@
+export { getProducts } from "@/entities/product/api/getProducts";
+
+export {
+    PRODUCT_CATEGORY_LABEL,
+    PRODUCT_AVAILABILITY_LABEL,
+    PRODUCT_PRICE_UNIT_LABEL
+} from "@/entities/product/model/constants";
+
+export {
+    type ProductAvailability,
+    type ProductCategory,
+    type ProductPriceUnit,
+    type Product }
+from "@/entities/product/model/types";
+
+export { type ProductItem} from "@/entities/product/api/getProducts";
+
+export{ ProductCard } from "@/entities/product/ui/ProductCard";

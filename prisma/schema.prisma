@@ -11,3 +11,38 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum ProductAvailability {
+  IN_STOCK
+  TO_ORDER
+  OUT_OF_STOCK
+}
+
+enum ProductCategory {
+  FILLET
+  CANNED
+  CUTLETS
+  RAW
+}
+
+enum ProductsPriceUnit {
+  PER_KG
+  PER_ITEM
+  PER_PACKAGE
+}
+
+model Product {
+  id           String              @id @default(cuid())
+  title        String
+  slug         String              @unique
+  description  String
+  price        Int
+  priceUnit    ProductsPriceUnit
+  tags         String[]
+  imageUrl     String
+  category     ProductCategory
+  availability ProductAvailability @default(IN_STOCK)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
