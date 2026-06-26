@@ -1,19 +1,26 @@
+"use server";
+
 import { SectionContainer } from "@/shared/ui/containers/SectionContainer";
-import {Product} from "@/entities/product/model/types";
+import {type Product, type ProductItem} from "@/entities/product";
+import { getProducts } from "@/entities/product/server";
+
+import { CatalogBlock } from "@/widgets/Catalog/ui/CatalogBlock";
+import {PRODUCT_CATEGORY_LABEL, PRODUCT_AVAILABILITY_LABEL, PRODUCT_PRICE_UNIT_LABEL} from "@/entities/product/model/constants";
 import { ProductCard } from "@/entities/product/ui/ProductCard"
 
-const products: Product[] = [
+// TODO переписать продукты в связи с новыми типами
+const products: ProductItem[] = [
     {
         id: "1",
         title: "Минтай 0% глазури ICF",
         slug: "mintai-0g-icf",
         description: "Филе минтая блочное 0% ICF, доставка по МО",
         price: 320,
-        priceUnit: "кг",
-        tags: "Глазурь: 0%;Н/К;ICF",
+        priceUnit: "PER_KG",
+        tags: ["Глазурь: 0%", "Н/К", "ICF"],
         imageUrl: "/images/hero/fish.png",
-        category: "Филе",
-        availability: "В наличии"
+        category: "FILLET",
+        availability: "IN_STOCK"
     },
     {
         id: "2",
@@ -21,11 +28,11 @@ const products: Product[] = [
         slug: "mintai-0g-icf",
         description: "Филе минтая блочное 0% ICF, доставка по МО",
         price: 320,
-        priceUnit: "кг",
-        tags: "Глазурь: 0%;Н/К;ICF",
+        priceUnit: "PER_KG",
+        tags: ["Глазурь: 0%", "Н/К", "ICF"],
         imageUrl: "/images/hero/fish.png",
-        category: "Филе",
-        availability: "В наличии"
+        category: "FILLET",
+        availability: "IN_STOCK"
     },
     {
         id: "3",
@@ -33,11 +40,11 @@ const products: Product[] = [
         slug: "mintai-0g-icf",
         description: "Филе минтая блочное 0% ICF, доставка по МО",
         price: 320,
-        priceUnit: "кг",
-        tags: "Глазурь: 0%;Н/К;ICF",
+        priceUnit: "PER_KG",
+        tags: ["Глазурь: 0%", "Н/К", "ICF"],
         imageUrl: "/images/hero/fish.png",
-        category: "Филе",
-        availability: "В наличии"
+        category: "FILLET",
+        availability: "IN_STOCK"
     },
     {
         id: "4",
@@ -45,19 +52,19 @@ const products: Product[] = [
         slug: "mintai-0g-icf",
         description: "Филе минтая блочное 0% ICF, доставка по МО",
         price: 320,
-        priceUnit: "кг",
-        tags: "Глазурь: 0%;Н/К;ICF",
+        priceUnit: "PER_KG",
+        tags: ["Глазурь: 0%", "Н/К", "ICF"],
         imageUrl: "/images/hero/fish.png",
-        category: "Филе",
-        availability: "В наличии"
-    }
+        category: "FILLET",
+        availability: "IN_STOCK"
+    },
 ]
-export function Catalog() {
+
+export async function Catalog() {
+    const products = await getProducts();
     return (
         <SectionContainer title="Каталог">
-            <div className="w-full flex flex-row justify-center gap-8 flex-wrap">
-                {products.map((product) => <ProductCard key={product.id} {...product} />)}
-            </div>
+            <CatalogBlock products={products} />
         </SectionContainer>
     )
 }
