@@ -1,5 +1,3 @@
-export { getProducts } from "@/entities/product/api/getProducts";
-
 export {
     PRODUCT_CATEGORY_LABEL,
     PRODUCT_AVAILABILITY_LABEL,
