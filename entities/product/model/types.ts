@@ -1,5 +1,5 @@
 export type ProductAvailability = "IN_STOCK" | "TO_ORDER" | "OUT_OF_STOCK";
-export type ProductCategory = "FILLET" | "CANNED" | "CUTLETS" | "OUT_OF_STOCK";
+export type ProductCategory = "FILLET" | "CANNED" | "CUTLETS" | "RAW";
 export type ProductPriceUnit = "PER_KG" | "PER_ITEM" | "PER_PACKAGE";
 
 export type Product = {
