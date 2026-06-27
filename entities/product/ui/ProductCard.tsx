@@ -27,7 +27,7 @@ export function ProductCard(props: ProductItem) {
                 />
             </div>
             <div className="p-4 flex flex-col gap-3">
-                <TextHeader as="h3" size="md">{props.title}</TextHeader>
+                <TextHeader as="h3" size="md" animated={false}>{props.title}</TextHeader>
                 <div className="flex gap-2">
                     {props.tags.map((tag) => <Label key={tag} size="sm">{tag}</Label>)}
                 </div>
