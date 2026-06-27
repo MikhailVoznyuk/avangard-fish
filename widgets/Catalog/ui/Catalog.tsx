@@ -1,5 +1,3 @@
-"use server";
-
 import { SectionContainer } from "@/shared/ui/containers/SectionContainer";
 import {type Product, type ProductItem} from "@/entities/product";
 import { getProducts } from "@/entities/product/server";

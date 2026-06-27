@@ -1,0 +1,1 @@
+export { Select } from "@/shared/ui/form/Select/ui/Select";
