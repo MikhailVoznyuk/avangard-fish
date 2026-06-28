@@ -13,7 +13,7 @@ export function SelectOption<T extends string>({item, onChoice, active}: Props<T
         <button
             type="button"
             onClick={() => onChoice(item)}
-            className="flex gap-4 grow-0 items-center"
+            className="flex gap-4 grow-0 items-center text-regular"
         >
             <div className={cn("size-6 flex items-center justify-center border-2 border-secondary overflow-hidden rounded-sm", active && "bg-secondary")}>
                 {active && <Image

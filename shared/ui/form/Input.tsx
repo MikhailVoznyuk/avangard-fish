@@ -16,7 +16,7 @@ export function Input({onChange, value, placeholder="", className}: Props) {
             onChange={(e) => onChange(e.target.value)}
             value={value}
             placeholder={placeholder}
-            className={cn("w-full h-full bg-white rounded-full border border-black/10 shadow-md px-2 py-1")}
+            className={cn("w-full h-full bg-white rounded-full border border-black/10 shadow-md px-2 py-1", className)}
         />
     )
 }
