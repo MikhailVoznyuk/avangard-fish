@@ -46,7 +46,7 @@ export function ProgressBlock() {
 
 
     const CARD_SIZE = 320;
-    const pointSize = 16 * 4;
+    const pointSize = 12 * 4; // 0.8
 
     return (
         <article ref={ref} className="relative h-[400vh] w-screen">
@@ -63,7 +63,11 @@ export function ProgressBlock() {
                         ))}
 
                     </Reveal>
-                    <Reveal className="relative" style={{width: `calc(100% - ${CARD_SIZE}px + ${pointSize}px)`}}>
+                    <Reveal className="relative w-full flex shrink-0 justify-enter"
+                            style={{
+                                width: `calc(100% - ${CARD_SIZE}px + ${pointSize}px)`,
+                            }}
+                    >
                         <div className="relative w-full h-2 rounded-full overflow-hidden"
                         >
                             <span className="absolute block left-0 top-0 size-full bg-secondary rounded-full" />
@@ -72,8 +76,7 @@ export function ProgressBlock() {
                                 style={{scaleX: progress}}
                             />
                         </div>
-                        <div className="w-full absolute top-0 flex justify-between"
-                             style={{transform: `translateY(calc(-50% + 4px))`}}>
+                        <div className="absolute top-0 flex justify-between w-full" style={{transform: `translateY(calc(-50% + 4px))`}}>
                             {PROGRESS_ITEMS.map((item, i) => (
                                 <ProgressPoint
                                     key={item.title}
