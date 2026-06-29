@@ -3,9 +3,6 @@ import {prisma} from "@/shared/db/prisma";
 export async function getProducts() {
     return prisma.product.findMany({
         where: {
-            availability: {
-                not: "OUT_OF_STOCK"
-            }
         },
         orderBy: {
             title: "asc"
