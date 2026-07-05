@@ -9,7 +9,7 @@ import {Button} from "@/shared/ui/buttons/Button";
 export function Hero() {
     const offsetY: number = 96;
     return (
-        <section className="relative w-full h-[600px]" style={{height: `calc(100vh - ${offsetY}px)`}}>
+        <section className="relative w-full h-[600px] rounded-b-4xl shadow-2xl overflow-hidden" style={{height: `calc(100vh - ${offsetY}px)`}}>
             <motion.div
                 initial={{opacity: 0, x: -200, filter: 'blur(10px)'}}
                 whileInView={{opacity: 1, x: 0, filter: 'blur(0px)'}}
