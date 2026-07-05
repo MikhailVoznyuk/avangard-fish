@@ -14,7 +14,12 @@ export type ProgressItem = {
 
 const PROGRESS_ITEMS: ProgressItem[] = [
     {
-        title: "Заключение сделки и расчеты",
+        title: "Заключение сделки",
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        image: "/icons/howWeWork/contract.svg"
+    },
+    {
+        title: "Расчеты и оплата",
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         image: "/icons/howWeWork/contract.svg"
     },
@@ -51,7 +56,7 @@ export function ProgressBlock() {
     return (
         <article ref={ref} className="relative h-[400vh] w-screen">
             <div className="sticky top-1/4 w-full flex justify-center">
-                <div className="relative flex flex-col items-center w-full max-w-5xl gap-12">
+                <div className="relative flex flex-col items-center w-full max-w-7xl gap-12">
                     <Reveal className="w-full flex justify-between">
                         {PROGRESS_ITEMS.map((item, i) => (
                             <ProgressCard
