@@ -1,1 +1,1 @@
-export { getProducts } from "@/entities/product/api/getProducts";
+export { productRepository} from "@/entities/product/api/productRepository";

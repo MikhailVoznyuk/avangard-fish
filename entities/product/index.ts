@@ -11,6 +11,6 @@ export {
     type Product }
 from "@/entities/product/model/types";
 
-export { type ProductItem} from "@/entities/product/api/getProducts";
+export type { ProductItem } from "@/entities/product/api/productRepository";
 
 export{ ProductCard } from "@/entities/product/ui/ProductCard";

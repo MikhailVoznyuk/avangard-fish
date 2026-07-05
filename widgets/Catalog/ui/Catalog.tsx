@@ -1,6 +1,6 @@
 import { SectionContainer } from "@/shared/ui/containers/SectionContainer";
 import {type Product, type ProductItem} from "@/entities/product";
-import { getProducts } from "@/entities/product/server";
+import { productRepository } from "@/entities/product/server";
 
 import { CatalogBlock } from "@/widgets/Catalog/ui/CatalogBlock";
 import {PRODUCT_CATEGORY_LABEL, PRODUCT_AVAILABILITY_LABEL, PRODUCT_PRICE_UNIT_LABEL} from "@/entities/product/model/constants";
@@ -59,7 +59,7 @@ const products: ProductItem[] = [
 ]
 
 export async function Catalog() {
-    const products = await getProducts();
+    const products = await productRepository.getPublicProducts();
     return (
         <SectionContainer title="Каталог">
             <CatalogBlock products={products} />

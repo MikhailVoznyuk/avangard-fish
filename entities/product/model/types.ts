@@ -15,4 +15,4 @@ export type Product = {
     availability: ProductAvailability;
 }
 
-export { type ProductItem} from "@/entities/product/api/getProducts";
+export type { ProductItem } from "@/entities/product";
