@@ -21,8 +21,6 @@
   --font-inter: var(--font-inter);
 }
 
-
-
 body {
   background: var(--background);
   color: var(--foreground);
