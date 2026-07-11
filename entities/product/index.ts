@@ -12,5 +12,6 @@ export {
 from "@/entities/product/model/types";
 
 export type { ProductItem } from "@/entities/product/api/productRepository";
+export type { AdminProductListItem } from "@/entities/product/api/productRepository";
 
 export{ ProductCard } from "@/entities/product/ui/ProductCard";

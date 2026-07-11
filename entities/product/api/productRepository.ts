@@ -71,4 +71,6 @@ export const productRepository = {
     }
 }
 
+export type AdminProductListItem = Awaited<ReturnType<typeof productRepository.getAdminProducts>>[number];
+
 export type ProductItem = Awaited<ReturnType<typeof productRepository.getPublicProducts>>[number];
