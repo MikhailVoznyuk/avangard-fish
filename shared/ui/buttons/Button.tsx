@@ -4,7 +4,7 @@ import {cn} from "@/shared/utils/cn";
 
 type Props = {
     type?: "button" | "submit";
-    handler: () => void;
+    handler?: () => void;
     variant?: "primary" | "secondary";
     children: ReactNode;
     className?: ClassValue;
@@ -17,7 +17,7 @@ export function Button({type="button", handler, variant="secondary", children, c
     return (
         <button
             type={type}
-            onClick={handler}
+            onClick={(type === "button") ? handler : undefined}
             className={cn("", base, optional, className)}
         >
             {children}
