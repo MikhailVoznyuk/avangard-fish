@@ -13,7 +13,6 @@ type Props = {
 }
 export function AdminProductsItem( {product}: Props ) {
     const [open, setOpen] = useState<boolean>(false);
-
     return (
         <div
              className="flex flex-col w-150 bg-white border border-black/10 shadow-md rounded-2xl p-4"
@@ -48,7 +47,7 @@ export function AdminProductsItem( {product}: Props ) {
                 </div>
             </div>
             {open && (
-                <ProductForm product={product} />
+                <ProductForm type="update" product={product} />
             )}
         </div>
     )

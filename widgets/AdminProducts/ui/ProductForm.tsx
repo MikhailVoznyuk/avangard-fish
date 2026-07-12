@@ -1,3 +1,6 @@
+"use client"
+
+import {createProductAction, updateProductAction} from "@/features/product-actions";
 import {
     AdminProductListItem,
     PRODUCT_AVAILABILITY_LABEL,
@@ -11,10 +14,11 @@ import {Button} from "@/shared/ui/buttons/Button";
 import {useState} from "react";
 
 type Props = {
+    type: "create" | "update";
     product?: Partial<AdminProductListItem>;
 }
 
-export function ProductForm({ product = {} }: Props) {
+export function ProductForm({type, product = {} }: Props) {
     const [productData, setProductData] = useState(product);
 
     const parseTags = (tags: string) => {
@@ -30,12 +34,26 @@ export function ProductForm({ product = {} }: Props) {
         ))
     }
 
+    let handleSubmit;
+
+    switch (type) {
+        case "create":
+            handleSubmit = createProductAction;
+            break;
+
+        case "update":
+            handleSubmit = (formData: FormData) => {
+                updateProductAction(product.id ?? "", formData);
+            }
+            break;
+    }
+
     return (
-        <form id={product.id} className={cn("flex flex-col gap-8 w-full")}>
+        <form id={product.id} action={handleSubmit} className={cn("flex flex-col gap-8 w-full")}>
             <div className="flex flex-col gap-6">
                 <FormFieldWrapper label={"Название объявления"}>
                     <FormInput
-                        name={"productTitle"}
+                        name={"title"}
                         value={productData.title ?? ""}
                         onChange={(value)  => handleChange("title", value)}
                         inputClassName="w-80"
@@ -45,14 +63,14 @@ export function ProductForm({ product = {} }: Props) {
                 <FormFieldWrapper label={"Цена"}>
                     <div className="flex flex-1 items-center">
                         <FormInput
-                            name={"productPrice"}
-                            value={String(productData.price)}
+                            name={"price"}
+                            value={String(productData.price ?? "")}
                             onChange={(value)  => handleChange("price", +value)}
                             inputClassName="w-20"
                         />
 
                         <select
-                            name={"productPriceUnit"}
+                            name={"priceUnit"}
                             value={productData.priceUnit}
                             onChange={(event) => handleChange("priceUnit", event.target.value as AdminProductListItem["priceUnit"])}
                             className="px-2 py-1"
@@ -66,7 +84,7 @@ export function ProductForm({ product = {} }: Props) {
 
                 <FormFieldWrapper label={"Описание"}>
                             <textarea
-                                name={"productImage"}
+                                name={"description"}
                                 value={productData.description}
                                 onChange={(event)  => handleChange("description", event.target.value)}
                                 className="bg-white border border-black/10 rounded-2xl w-100 h-60 p-4 shadow-md"
@@ -75,7 +93,7 @@ export function ProductForm({ product = {} }: Props) {
 
                 <FormFieldWrapper label="Категория">
                     <select
-                        name={"productCategory"}
+                        name={"category"}
                         value={productData.category}
                         onChange={(event) => handleChange("category", event.target.value as AdminProductListItem["category"])}
                         className="w-38 rounded-full bg-white border border-black/10 px-2 py-1 shadow-md "
@@ -87,7 +105,7 @@ export function ProductForm({ product = {} }: Props) {
                 </FormFieldWrapper>
                 <FormFieldWrapper label="Наличие">
                     <select
-                        name={"productAvailability"}
+                        name={"availability"}
                         value={productData.availability}
                         onChange={(event) => handleChange("availability", event.target.value as AdminProductListItem["availability"])}
                         className="w-38 rounded-full bg-white border border-black/10 px-2 py-1 shadow-md "
@@ -99,7 +117,7 @@ export function ProductForm({ product = {} }: Props) {
                 </FormFieldWrapper>
                 <FormFieldWrapper label={"Теги через запятую"}>
                     <FormInput
-                        name={"productTags"}
+                        name={"tags"}
                         value={productData?.tags?.join(', ') ?? ""}
                         onChange={(value)  => handleChange("tags", parseTags(value))}
                         inputClassName="w-100"
@@ -107,7 +125,7 @@ export function ProductForm({ product = {} }: Props) {
                 </FormFieldWrapper>
                 <FormFieldWrapper label={"Cсылка на фото"}>
                     <FormInput
-                        name={"productImage"}
+                        name={"imageUrl"}
                         value={productData.imageUrl ?? ""}
                         onChange={(value)  => handleChange("imageUrl", value)}
                         inputClassName="w-64"
@@ -115,7 +133,7 @@ export function ProductForm({ product = {} }: Props) {
                 </FormFieldWrapper>
                 <FormFieldWrapper label={"Текст ссылки (только английский алфавит, цифры, тире)"}>
                     <FormInput
-                        name={"productSlug"}
+                        name={"slug"}
                         value={productData.slug ?? ""}
                         onChange={(value)  => handleChange("slug", value)}
                         inputClassName="w-64"
@@ -126,10 +144,8 @@ export function ProductForm({ product = {} }: Props) {
                 <Button
                     type="submit"
                     variant="secondary"
-                    handler={() => {}}
                 >Сохранить</Button>
             </div>
-
         </form>
     )
 }
