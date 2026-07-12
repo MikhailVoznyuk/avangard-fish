@@ -57,6 +57,9 @@ export async function updateProductAction(id: string, formData: FormData) {
 
 export async function deleteProductAction(id: string) {
     await productRepository.deleteProduct(id);
+
+    revalidatePath("/admin");
+    revalidatePath("/admin/products");
 }
 
 
