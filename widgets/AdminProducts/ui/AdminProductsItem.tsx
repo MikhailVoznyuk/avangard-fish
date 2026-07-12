@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { AdminProductListItem } from "@/entities/product";
+import { deleteProductAction } from "@/features/product-actions";
 import { Header } from "@/shared/ui/text/Header";
 import { Button } from "@/shared/ui/buttons/Button";
 import { cn } from "@/shared/utils/cn";
@@ -41,7 +42,7 @@ export function AdminProductsItem( {product}: Props ) {
 
                     <Button
                         variant="secondary"
-                        handler={() => console.log('Удалить')}
+                        handler={() => deleteProductAction(product.id)}
                         className="text-base px-2 py-1"
                     >Удалить</Button>
                 </div>
