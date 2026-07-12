@@ -9,8 +9,8 @@ export function CatalogBlock({products}: {products: ProductItem[]}) {
     const [curCategories, setCurCategories] = useState<ProductCategory[]>(products.map((product) => product.category));
     const [curAvailability, setCurAvailability] = useState<ProductAvailability[]>(products.map((product) => product.availability));
 
-    const categories = products.map((product) => product.category);
-    const availability = products.map((product) => product.availability);
+    const categories = Array.from(new Set(products.map((product) => product.category)));
+    const availability = Array.from(new Set(products.map((product) => product.availability)));
 
     products = products.filter(
         (product) => product.title.toLowerCase().includes(searchValue.toLowerCase()) &&
