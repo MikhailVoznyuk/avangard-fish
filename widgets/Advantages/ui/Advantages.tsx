@@ -19,23 +19,23 @@ export function Advantages() {
                 <AdvantageCardRadial
                     title={"Надежность."}
                     description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
-                    imageUrl={"/images/hero/fish.png"}
+                    imageUrl={"/images/advantages/factory.png"}
                 />
                 <AdvantageCardRadial
                     title={"Качество."}
                     description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
-                    imageUrl={"/images/hero/fish.png"}
+                    imageUrl={"/images/advantages/factory.png"}
                     inverse
                 />
-                <AdvantageCard
-                    title={"Быстрые сроки."}
+                <AdvantageCardRadial
+                    title={"Прозрачность сделки."}
                     description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}
-                    image={"/images/hero/fish.png"}
+                    imageUrl={"/images/advantages/factory.png"}
                 />
                 <AdvantageCardRadial
                     title={"Быстрые сроки."}
                     description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
-                    imageUrl={"/images/hero/fish.png"}
+                    imageUrl={"/images/advantages/factory.png"}
                     inverse
                 />
                 <AdvantageCard
