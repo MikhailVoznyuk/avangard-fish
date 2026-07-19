@@ -18,12 +18,12 @@ export function Advantages() {
             <div className="flex justify-center gap-6 flex-wrap">
                 <AdvantageCardRadial
                     title={"Надежность."}
-                    description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                    description={"Стабильные поставки и постоянно высокий уровень качества. Вы всегда обеспечены товаром."}
                     imageUrl={"/images/advantages/factory.png"}
                 />
                 <AdvantageCardRadial
                     title={"Качество."}
-                    description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                    description={"Строгий контроль на каджом этапе производства. Закупаем высококачественное сырье только у проверенных поставщиков."}
                     imageUrl={"/images/advantages/factory.png"}
                     inverse
                 />

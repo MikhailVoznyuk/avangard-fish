@@ -15,22 +15,22 @@ export type ProgressItem = {
 const PROGRESS_ITEMS: ProgressItem[] = [
     {
         title: "Заключение сделки",
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        content: 'Индивидуальные договоры без скрытых условий. Полный пакет документов и ветеринарных сертификатов на каждую партию.',
         image: "/icons/howWeWork/contract.svg"
     },
     {
         title: "Расчеты и оплата",
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        content: 'Гибкие условия для постоянных партнеров: наличный/безналичный расчет, отсрочка платежа, работа по аккредитиву.',
         image: "/icons/howWeWork/contract.svg"
     },
     {
         title: "Производство",
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        content: 'Современный сертифицированный цех. Полный цикл: от приемки сырья до шоковой заморозки с сохранением полезных свойств.',
         image: "/icons/howWeWork/fish.svg",
     },
     {
         title: "Доставка",
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        content: 'Автопарк рефрижераторов с климат-контролем. Доставка точно в срок по Москве и области.',
         image: "/icons/howWeWork/truck.svg"
     }
 ];
