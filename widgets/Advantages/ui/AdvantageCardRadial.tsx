@@ -19,7 +19,7 @@ export function AdvantageCardRadial({ title, description, imageUrl, inverse=fals
                 height={360}
                 className={cn("absolute h-full w-full")} />
             <div className={cn("relative flex w-4/6 p-6 h-full bg-white shadow-xl", inverse ? "rounded-r-full justify-start pr-16" : "rounded-l-full justify-end pl-16 ")}>
-                <div className={cn("flex flex-col gap-6 justify-center")}>
+                <div className={cn("flex flex-col gap-4 justify-center")}>
                     <div className={cn("flex flex-col gap-2")}>
                         <Header
                             variant="secondary"
